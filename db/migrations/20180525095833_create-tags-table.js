@@ -5,11 +5,10 @@ exports.up = function(knex, Promise) {
     t.string('notes');
     t.string('surface')
     t.string('foot');
-    t.string('bicyle');
+    t.string('bicycle');
     t.string('horse');
     t.string('golf_cart');
     t.string('motor_vehicle');
-    t.string('4wd_only');
     t.string('highway');
     t.string('website');
     t.integer('trail_id').references('trails.id');
