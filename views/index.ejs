@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>PathFinder</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Trails</h1>
+    <% trails.forEach(trail => { %>
+      <li><%= trail.name %></li>
+    <% }) %>
   </body>
 </html>
