@@ -14,13 +14,12 @@ function initMap(path) {
 
 function displayPathElevation(path, elevator) {
   // Display a polyline of the elevation path.
-
   // Create a PathElevationRequest object using this array.
   // Ask for 256 samples along that path.
   // Initiate the path request.
   elevator.getElevationAlongPath({
     'path': path,
-    'samples': 256
+    'samples': path.length
   }, plotElevation);
 }
 
@@ -35,7 +34,7 @@ function plotElevation(elevations, status) {
     return;
   }
   // Create a new chart in the elevation_chart DIV.
-  var chart = new google.visualization.ColumnChart(chartDiv);
+  var chart = new google.visualization.LineChart(chartDiv);
 
   // Extract the data from which to populate the chart.
   // Because the samples are equidistant, the 'Sample'
