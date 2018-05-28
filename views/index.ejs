@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PathFinder</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC8IJyqe7PKy6yLBGn70oU6aPTpHKuk71c"></script>
+
+    <script src="https://www.google.com/jsapi"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src = '/javascripts/application.js'></script>
   </head>
-  <body>
+
+  <body onload = "initMap()">
     <h1>Trails</h1>
+    <!-- <div class="elevation_chart">
+      uncomment to see the elevation chart
+    </div> -->
     <% trails.forEach(trail => { %>
       <li><%= trail.name %></li>
     <% }) %>
   </body>
+
 </html>
