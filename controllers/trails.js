@@ -10,6 +10,14 @@ const index = (req, res) => {
   })
 }
 
+const show = (req, res) => {
+  Trail.find(req.params["id"])
+  .then(data => {
+    res.render('trails/show', {trail: data.rows[0], nodes: data.rows[0].json_agg});
+  })
+}
+
 module.exports = {
-  index
+  index,
+  show
 }
