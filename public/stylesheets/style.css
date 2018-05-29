@@ -1,29 +1,37 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+/* body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 a {
-  color: black; }
+  color: black;
+}
 
-  body {
-    background-color: #E7EBF1
-  }
+body {
+  background-color: #E7EBF1;
+} */
 
-  .boxy {
-    margin: 1em;
-  }
+.boxy {
+  margin: 1em;
+}
 
-  h1 {
-      font-family: 'Dosis', sans-serif;
-      font-weight: 400;
-      line-height: 60px;
-      font-size: 60px;
-      }
-  h2 {
-      font-family: 'Dosis', sans-serif;
-      font-weight: 800;
-      font-size: 18px;
-      line-height: 46px;
-      }
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* h1 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
+  line-height: 60px;
+  font-size: 60px;
+}
+
+h2 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 46px;
+}
 
   h3, button {
       font-family: 'Dosis', sans-serif;
@@ -138,4 +146,4 @@ a {
     width: 200px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-  }
+  } */
