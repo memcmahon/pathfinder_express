@@ -4,8 +4,8 @@ var router = express.Router();
 const trailsController = require('../controllers/trails');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  trailsController.index(req, res);
+router.get('/:id', function(req, res, next) {
+  trailsController.show(req, res);
 });
 
 module.exports = router;
