@@ -24,7 +24,8 @@ fetch(baseUrl+queryString)
     minElevation: trail.low,
     longitude: trail.longitude,
     latitude: trail.latitude
-  })
+  }).returning('id')
+  .then(trail => console.log(`created trail ${trail}`))
   .catch(error => console.log(error))
 }))
 .catch((error) => console.log(error));
