@@ -3,16 +3,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */
-
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
-#map {
-  height: 100%;
-}
-
-.elevation_chart{
-  height: 100%;
-}
