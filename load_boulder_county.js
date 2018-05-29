@@ -4,7 +4,7 @@ const database = require('knex')(configuration);
 var fetch = require('node-fetch')
 
 var baseUrl = "https://www.hikingproject.com/data/get-trails"
-var queryString = `?lat=40.094327&lon=-105.355688&maxResults=500&maxDistance=50&key=?`
+var queryString = `?lat=40.094327&lon=-105.355688&maxResults=500&maxDistance=50&key=${process.env.KEY}`
 
 fetch(baseUrl+queryString)
 .then(response => response.json())
