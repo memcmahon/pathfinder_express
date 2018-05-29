@@ -2,21 +2,30 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
-  <body onload = "initMap()">
+  <body>
     <h1 class="text-center">Trails</h1>
-    <!-- <div class="elevation_chart">
-      uncomment to see the elevation chart
-    </div> -->
     <div class="container">
       <div class="row no-gutters">
         <% trails.forEach(trail => { %>
-          <div class="col-md-4 text-center border">
-            <h4><%= trail.name %></h4>
-            <a href="/trails/<%= trail.id %>"><%= trail.osm_id %></a>
-            <!-- <h3><%= trail.length %></h3> -->
+          <div class="col-md-5 boxy text-center border mx-auto">
+            <a href="/trails/<%= trail.id %>" class=""><h4><%= trail.name %></h4></a>
+            <div class="container">
+              <div class="row no-gutters">
+                <div class="col-md-6 text-left">
+                  <p>Min Elevation: <%= trail.minElevation %></p>
+                  <p>Max Elevation: <%= trail.maxElevation %></p>
+                </div>
+                <div class="col-md-6 text-right">
+                  <p>Length: <%= trail.length %></p>
+                  <p>Total Elevation Gain: <%= trail.maxElevation - trail.minElevation %></p>
+                </div>
+              </div>
+            </div>
+            <p>Average Pitch: <%= (Math.atan((trail.maxElevation - trail.minElevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
           </div>
         <% }) %>
       </div>
