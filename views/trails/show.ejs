@@ -2,15 +2,39 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body onload = "initMap(<%= JSON.stringify(nodes) %>)">
+    <nav class="m0 col-12 bg-white fixed z2">
+      <div class="ml1 left">
+        <a href="/">
+        <h1 class="m0">PathFinder</h1></a>
+      </div>
+    </nav>
 
-    <div id="map" style="height:250px;">
-    </div>
+    <div class="container">
 
-    <div id="elevation_chart">
+      <h1 class="text-center"><%= trail.name %></h1>
+
+      <div id="map" style="height:250px; margin-bottom: 1em;">
+      </div>
+
+      <div class="container no-gutters">
+        <div class="row no-gutters">
+
+          <div class="col-md-5 boxy bg-soft-white">
+            <p>Min Elevation: <%= trail.minElevation %></p>
+            <p>Max Elevation: <%= trail.maxElevation %></p>
+            <p>Length: <%= trail.length %></p>
+            <p>Total Elevation Gain: <%= trail.maxElevation - trail.minElevation %></p>
+            <p>Average Pitch: <%= (Math.atan((trail.maxElevation - trail.minElevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
+          </div>
+          <div id="elevation_chart" class="col-md-6 boxy">
+          </div>
+        </div>
+      </div>
     </div>
 
 
