@@ -10,6 +10,13 @@ const all = () => {
                       GROUP BY trails.id`);
 }
 
+const findByQuery = (minLength, maxLength, maxElevation) => {
+  return database.raw(`SELECT * FROM
+                      (SELECT trails.*, sum(max_elevation - min_elevation) as elevation_gain
+                      FROM trails
+                      GROUP BY trails.id) as t WHERE elevation_gain < ? AND length >= ? AND length <= ?`, [maxElevation, minLength, maxLength])
+}
+
 const find = (id) => {
   return database.raw(`SELECT trails.*,
                       JSON_AGG(json_build_object('leg_id', nodes.legacy_id, 'lat', nodes.latitude, 'lng', nodes.longitude) ORDER BY nodes.legacy_id)
@@ -20,5 +27,6 @@ const find = (id) => {
 
 module.exports = {
   all,
-  find
+  find,
+  findByQuery
 }
