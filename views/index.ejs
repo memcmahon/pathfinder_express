@@ -12,6 +12,25 @@
         <h1 class="m0">PathFinder</h1>
       </div>
     </nav>
+    <div class="">
+      <p>Sign Up</p>
+      <form class="" action="/signup" method="post">
+        <input type="text" name="firstName" placeholder="First Name">
+        <input type="text" name="lastName" placeholder="Last Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" name="create">Submit</button>
+      </form>
+    </div>
+
+    <div class="">
+      <p>Log In</p>
+      <form class="" action="/login" method="post">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" name="create">Log In</button>
+      </form>
+    </div>
     <div class="container">
       <div class="row no-gutters">
         <% trails.forEach(trail => { %>
