@@ -6,6 +6,14 @@ a {
   color: black;
 }
 
+#signup, #login {
+  cursor: pointer;
+}
+
+div.signup, div.login {
+  display:none;
+}
+
 body {
   background-color: #E7EBF1;
 }
