@@ -11,8 +11,8 @@ exports.up = function(knex, Promise) {
     t.float('length');
     t.float('ascent');
     t.float('descent');
-    t.float('maxElevation');
-    t.float('minElevation');
+    t.float('max_elevation');
+    t.float('min_elevation');
     t.float('longitude');
     t.float('latitude');
     t.timestamps();

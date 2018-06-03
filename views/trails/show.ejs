@@ -25,11 +25,11 @@
         <div class="row no-gutters">
 
           <div class="col-md-5 boxy bg-soft-white">
-            <p>Min Elevation: <%= trail.minElevation %></p>
-            <p>Max Elevation: <%= trail.maxElevation %></p>
+            <p>Min Elevation: <%= trail.min_elevation %></p>
+            <p>Max Elevation: <%= trail.max_elevation %></p>
             <p>Length: <%= trail.length %></p>
-            <p>Total Elevation Gain: <%= trail.maxElevation - trail.minElevation %></p>
-            <p>Average Pitch: <%= (Math.atan((trail.maxElevation - trail.minElevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
+            <p>Total Elevation Gain: <%= trail.max_elevation - trail.min_elevation %></p>
+            <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
           </div>
           <div id="elevation_chart" class="col-md-6 boxy">
           </div>
