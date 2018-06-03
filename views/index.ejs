@@ -33,6 +33,17 @@
         <button type="submit" name="create">Log In</button>
       </form>
     </div>
+
+    <div class="container">
+      <form class="" action="/" method="get">
+        <input type="integer" name="min_length" placeholder="min length(mi)">
+        <input type="integer" name="max_length" placeholder="max length(mi)">
+        <input type="integer" name="max_elevation_gain" placeholder="max elevation gain(ft)">
+        <button type="submit" name="search" class="btn">Search</button>
+      </form>
+      <p>When searching, all fields required!</p>
+    </div>
+
     <div class="container">
       <div class="row no-gutters">
         <% trails.forEach(trail => { %>
@@ -41,16 +52,16 @@
             <div class="container">
               <div class="row no-gutters">
                 <div class="col-md-6 text-left">
-                  <p>Min Elevation: <%= trail.minElevation %></p>
-                  <p>Max Elevation: <%= trail.maxElevation %></p>
+                  <p>Min Elevation: <%= trail.min_elevation %></p>
+                  <p>Max Elevation: <%= trail.max_elevation %></p>
                 </div>
                 <div class="col-md-6 text-right">
                   <p>Length: <%= trail.length %></p>
-                  <p>Total Elevation Gain: <%= trail.maxElevation - trail.minElevation %></p>
+                  <p>Total Elevation Gain: <%= trail.max_elevation - trail.min_elevation %></p>
                 </div>
               </div>
             </div>
-            <p>Average Pitch: <%= (Math.atan((trail.maxElevation - trail.minElevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
+            <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
           </div>
         <% }) %>
       </div>
