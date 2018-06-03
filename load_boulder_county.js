@@ -20,8 +20,8 @@ fetch(baseUrl+queryString)
     length: trail.length,
     ascent: trail.ascent,
     descent: trail.descent,
-    maxElevation: trail.high,
-    minElevation: trail.low,
+    max_elevation: trail.high,
+    min_elevation: trail.low,
     longitude: trail.longitude,
     latitude: trail.latitude
   }).returning('id')
