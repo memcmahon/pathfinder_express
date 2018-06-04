@@ -83,3 +83,17 @@ describe('Client Routes', () => {
       response.should.have.status(200);
     })
   })
+
+  it('should return error if fields missing from signup form', () => {
+    return chai.request(server)
+    .post('/signup')
+    .send({
+      firstName: "Megan",
+      lastName: "McMahon",
+      password: "test"
+    })
+    .then((response) => {
+      response.should.have.status(422);
+    })
+  })
+
