@@ -97,3 +97,15 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return a sign in page', () => {
+    return chai.request(server)
+    .post('/login')
+    .send({
+      email: "test@example.com",
+      password: "test"
+    })
+    .then((response) => {
+      response.should.have.status(200);
+    })
+  })
+
