@@ -12,7 +12,7 @@ const logIn = (req, res) => {
 }
 
 const logOut = (req, res) => {
-  req.session.user = undefined;
+  delete req.session.user;
   res.redirect('/');
 }
 
