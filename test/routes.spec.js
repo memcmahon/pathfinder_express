@@ -109,3 +109,15 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return an error for non-existent user', () => {
+    return chai.request(server)
+    .post('/login')
+    .send({
+      email: "molly@example.com",
+      password: "test"
+    })
+    .then((response) => {
+      response.should.have.status(401);
+    })
+  })
+
