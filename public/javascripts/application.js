@@ -1,7 +1,7 @@
 $('#signup').click(function() {
-  $('div.signup').show('medium');
+  $('div.signup').toggle('medium');
 })
 
 $('#login').click(function() {
-  $('div.login').show('medium');
+  $('div.login').toggle('medium');
 })
