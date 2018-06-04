@@ -20,7 +20,9 @@ const create = (req, res) => {
       req.session.user = user;
       res.status(201).redirect('/')
     })
-    .catch((error) => console.log(error))
+    .catch((error) => {
+      res.sendStatus(422);
+    })
 }
 
 const logIn = (req, res) => {
@@ -41,7 +43,10 @@ const logIn = (req, res) => {
     req.session.user = user;
     res.status(200).redirect('/')
   })
-  .catch((error) => console.log({error}))
+  .catch((error) => {
+    res.sendStatus(401)
+  })
+
 }
 
 const hashPassword = (password) => {
