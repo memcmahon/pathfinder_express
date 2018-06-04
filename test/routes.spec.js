@@ -70,3 +70,16 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return sign up page', () => {
+    return chai.request(server)
+    .post('/signup')
+    .send({
+      firstName: "Megan",
+      lastName: "McMahon",
+      email: "test@example.com",
+      password: "test"
+    })
+    .then((response) => {
+      response.should.have.status(200);
+    })
+  })
