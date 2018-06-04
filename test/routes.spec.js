@@ -42,3 +42,15 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return the home page with text', () => {
+    return chai.request(server)
+    .get('/?min_length=&max_length=&max_elevation_gain=')
+    .then((response) => {
+      response.should.have.status(200);
+      response.should.be.html;
+    })
+    .catch((error) => {
+      throw error;
+    })
+  })
+
