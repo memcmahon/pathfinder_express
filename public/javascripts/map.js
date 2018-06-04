@@ -1,5 +1,5 @@
 // Load the Visualization API and the columnchart package.
-google.load('visualization', '1', {packages: ['columnchart']});
+google.load('visualization', '1', {packages: ['linechart']});
 
 function initMap(path) {
 
@@ -55,13 +55,13 @@ function plotElevation(elevations, status) {
   data.addColumn('string', 'Sample');
   data.addColumn('number', 'Elevation');
   for (var i = 0; i < elevations.length; i++) {
-    data.addRow(['', elevations[i].elevation]);
+    data.addRow(['', elevations[i].elevation*3.28084]);
   }
 
   // Draw the chart using the data within its DIV.
   chart.draw(data, {
     height: 150,
     legend: 'none',
-    titleY: 'Elevation (m)'
+    titleY: 'Elevation (ft)'
   });
 }
