@@ -121,3 +121,15 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return an error for incorrect password', () => {
+    return chai.request(server)
+    .post('/login')
+    .send({
+      email: "molly@example.com",
+      password: "halp"
+    })
+    .then((response) => {
+      response.should.have.status(401);
+    })
+  })
+})
