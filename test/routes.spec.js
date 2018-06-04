@@ -54,3 +54,11 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return 404 if route not found', () => {
+    return chai.request(server)
+    .get('/helloworld')
+    .then((response) => {
+      response.should.have.status(404);
+    })
+  })
+
