@@ -34,6 +34,10 @@
       </form>
     </div>
 
+    <% if (user) { %>
+      <a href="/logout"><p>Log Out</p></a>
+    <% } %>
+
     <div class="container">
       <form class="" action="/" method="get">
         <input type="integer" name="min_length" placeholder="min length(mi)">
