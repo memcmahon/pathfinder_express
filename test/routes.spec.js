@@ -62,3 +62,11 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return single trail page', () => {
+    return chai.request(server)
+    .get('/trails/1')
+    .then((response) => {
+      response.should.have.status(200);
+    })
+  })
+
