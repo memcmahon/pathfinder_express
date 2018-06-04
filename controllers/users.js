@@ -11,7 +11,13 @@ const logIn = (req, res) => {
   User.logIn(req, res)
 }
 
+const logOut = (req, res) => {
+  req.session.user = undefined;
+  res.redirect('/');
+}
+
 module.exports = {
   create,
-  logIn
+  logIn,
+  logOut
 }
