@@ -6,6 +6,11 @@ body {
   margin-top: .4em;
 }
 
+.user-btn {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
 .search-form {
   margin-top: 1em;
 }
