@@ -17,7 +17,17 @@ const create = (trail_id, user_id) => {
           })
 }
 
+const destroy = (trail_id, user_id) => {
+  console.log('model', trail_id, user_id)
+  return database.raw(`DELETE FROM saved_trails
+                      WHERE trail_id = ? AND user_id = ?`, [trail_id, user_id])
+          .catch((error) => {
+            console.log(error);
+          })
+}
+
 module.exports = {
   findByUser,
-  create
+  create,
+  destroy
 }
