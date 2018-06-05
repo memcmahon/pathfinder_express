@@ -7,5 +7,6 @@ $('#login').click(function() {
 })
 
 $('.save-btn').click(function() {
+  event.preventDefault();
   $(this).css('background-color', 'pink');
 })
