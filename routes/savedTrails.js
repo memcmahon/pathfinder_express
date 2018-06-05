@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  savedTrailsController.create(req, res)
+  savedTrailsController.create(req, res);
+});
+
+router.delete('/', function(req, res, next) {
+  savedTrailsController.destroy(req, res);
 });
 
 module.exports = router;
