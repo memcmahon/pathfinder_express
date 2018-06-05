@@ -5,3 +5,7 @@ $('#signup').click(function() {
 $('#login').click(function() {
   $('div.login').toggle('medium');
 })
+
+$('.save-btn').click(function() {
+  $(this).css('background-color', 'pink');
+})
