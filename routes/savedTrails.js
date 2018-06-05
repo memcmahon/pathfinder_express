@@ -8,4 +8,8 @@ router.get('/', function(req, res, next) {
   savedTrailsController.index(req, res);
 });
 
+router.post('/', function(req, res, next) {
+  savedTrailsController.create(req, res)
+});
+
 module.exports = router;
