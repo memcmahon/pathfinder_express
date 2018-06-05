@@ -63,9 +63,11 @@
             <h2><%= trail.length %> miles, <%= trail.max_elevation - trail.min_elevation %> feet gained</h2>
             <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
             <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
-            <form class="" action="/savedTrails" method="post">
-              <button type="submit" name="save" class="btn border user-btn save-btn">Save Trail</button>
-            </form>
+            <% if (user) { %>
+              <form class="" action="/savedTrails" method="post">
+                <button type="submit" name="save" class="btn border user-btn save-btn">Save Trail</button>
+              </form>
+            <% } %>
           </div>
         <% }) %>
       </div>
@@ -74,5 +76,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='/javascripts/application.js'></script>
   </body>
-
 </html>
