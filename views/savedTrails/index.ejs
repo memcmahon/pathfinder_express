@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8IJyqe7PKy6yLBGn70oU6aPTpHKuk71c&libraries=geometry"></script>
+  </head>
+
+  <body>
+    <nav class="m0 col-12 bg-white fixed z2">
+        <div class="row no-gutters">
+          <div class="col-sm-6 ml1 left">
+            <a href="/"><h1 class="logo">PathFinder</h1></a>
+          </div>
+          <div class="col-sm-6 mr1 text-right">
+            <% if (user) { %>
+              <h2>Welcome, <%= user.first_name %></h2>
+              <a href="/mytrails"><h2 style="display:inline;">Saved Hikes</h2></a> - <a href="/logout"><h2 style="display:inline;">Logout</h2></a>
+            <% } %>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="col-md-12" align="center">
+        <h3>My Saved Trails</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row no-gutters">
+        <% trails.forEach(trail => { %>
+          <div class="col-md-5 boxy text-center border rounded bg-soft-white mx-auto">
+            <a href="/trails/<%= trail.id %>" class="text-decoration-none"><h4><%= trail.name %></h4></a>
+            <h2><%= trail.length %> miles, <%= trail.max_elevation - trail.min_elevation %> feet gained</h2>
+            <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
+            <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
+            <% if (user) { %>
+              <form class="" action="/mytrails" method="post">
+                <input type="hidden" name="trail_id" value=<%= trail.id %>>
+                <button type="submit" name="save" class="btn border user-btn save-btn" data-trail=<%= trail.id %>>Save Trail</button>
+              </form>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='/javascripts/application.js'></script>
+  </body>
+</html>
