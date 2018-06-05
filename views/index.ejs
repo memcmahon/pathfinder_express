@@ -17,7 +17,7 @@
           <div class="col-sm-6 mr1 text-right">
             <% if (user) { %>
               <h2>Welcome, <%= user.first_name %></h2>
-              <a href="/logout"><h2>Log Out</h2></a>
+              <a href="/mytrails"><h2 style="display:inline;">Saved Trails</h2></a> - <a href="/logout"><h2 style="display:inline;">Logout</h2></a>
             <% } else { %>
               <h2 id="signup">Sign Up</h2>
               <div class="signup">
@@ -63,6 +63,13 @@
             <h2><%= trail.length %> miles, <%= trail.max_elevation - trail.min_elevation %> feet gained</h2>
             <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
             <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
+            <% if (user) { %>
+              <% if (trail.user_id === user.id) { %>
+                <button type="submit" name="save" class="btn border user-btn unsave-btn" data-trail=<%= trail.id %>>Remove from Saved</button>
+              <% } else { %>
+                <button type="submit" name="save" class="btn border user-btn save-btn" data-trail=<%= trail.id %>>Save Trail</button>
+              <% } %>
+            <% } %>
           </div>
         <% }) %>
       </div>
@@ -71,5 +78,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='/javascripts/application.js'></script>
   </body>
-
 </html>
