@@ -11,6 +11,11 @@ const index = (req, res) => {
   })
 }
 
+const create = (req, res) => {
+  SavedTrail.create(req.body.trail_id, req.session.user.id);
+}
+
 module.exports = {
-  index
+  index,
+  create
 }
