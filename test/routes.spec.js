@@ -121,7 +121,7 @@ describe('Client Routes', () => {
     return chai.request(server)
     .post('/login')
     .send({
-      email: "molly@example.com",
+      email: "connor@example.com",
       password: "test"
     })
     .then((response) => {
