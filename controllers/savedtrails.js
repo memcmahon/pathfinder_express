@@ -7,7 +7,7 @@ const index = (req, res) => {
   var userId = req.session.user.id;
   SavedTrail.findByUser(userId)
   .then(data => {
-    res.render('savedTrails/index', {trails: data.rows})
+    res.render('savedTrails/index', {trails: data.rows, user: req.session.user})
   })
 }
 
