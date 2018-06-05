@@ -17,7 +17,7 @@
           <div class="col-sm-6 mr1 text-right">
             <% if (user) { %>
               <h2>Welcome, <%= user.first_name %></h2>
-              <a href="/myhikes"><h2 style="display:inline;">Saved Hikes</h2></a> - <a href="/logout"><h2 style="display:inline;">Logout</h2></a>
+              <a href="/mytrails"><h2 style="display:inline;">Saved Trails</h2></a> - <a href="/logout"><h2 style="display:inline;">Logout</h2></a>
             <% } else { %>
               <h2 id="signup">Sign Up</h2>
               <div class="signup">
@@ -64,7 +64,8 @@
             <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
             <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
             <% if (user) { %>
-              <form class="" action="/savedTrails" method="post">
+              <form class="" action="/mytrails" method="post">
+                <input type="hidden" name="trail_id" value=<%= trail.id %>>
                 <button type="submit" name="save" class="btn border user-btn save-btn">Save Trail</button>
               </form>
             <% } %>

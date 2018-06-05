@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/trails', trailsRouter);
-app.use('/myhikes', savedTrailsRouter);
+app.use('/mytrails', savedTrailsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
