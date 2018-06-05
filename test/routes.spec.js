@@ -109,11 +109,19 @@ describe('Client Routes', () => {
     })
   })
 
+  it('should return a logout page', () => {
+    return chai.request(server)
+    .get('/logout')
+    .then((response) => {
+      response.should.have.status(200);
+    })
+  })
+
   it('should return an error for non-existent user', () => {
     return chai.request(server)
     .post('/login')
     .send({
-      email: "molly@example.com",
+      email: "connor@example.com",
       password: "test"
     })
     .then((response) => {
