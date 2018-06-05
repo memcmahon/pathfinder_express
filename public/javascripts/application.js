@@ -13,3 +13,14 @@ $('.save-btn').click(function() {
   $(this).text('Saved');
   $.post("/mytrails", { trail_id: trail_id });
 })
+
+$('.unsave-btn').click(function() {
+  var trail_id = this.getAttribute('data-trail');
+  event.preventDefault();
+  $(this).hide();
+  $.ajax({
+    url: '/mytrails',
+    method: 'DELETE',
+    data: { trail_id: trail_id }
+  })
+})
