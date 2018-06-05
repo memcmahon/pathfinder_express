@@ -64,10 +64,11 @@
             <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
             <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
             <% if (user) { %>
-              <form class="" action="/mytrails" method="post">
-                <input type="hidden" name="trail_id" value=<%= trail.id %>>
+              <% if (trail.user_id === user.id) { %>
+                <button type="submit" name="save" class="btn border user-btn unsave-btn" data-trail=<%= trail.id %>>Remove from Saved</button>
+              <% } else { %>
                 <button type="submit" name="save" class="btn border user-btn save-btn" data-trail=<%= trail.id %>>Save Trail</button>
-              </form>
+              <% } %>
             <% } %>
           </div>
         <% }) %>
