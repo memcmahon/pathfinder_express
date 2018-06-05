@@ -3,9 +3,12 @@ const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 
 const findByUser = (user_id) => {
-  return database.raw(`SELECT trails.*, saved_trails.user_id FROM saved_trails
+  return database.raw(`SELECT trails.*, saved_trails.user_id,
+                      JSON_AGG(json_build_object('lat', nodes.latitude, 'lng', nodes.longitude, 'leg_id', nodes.legacy_id)ORDER BY nodes.legacy_id) AS nodes
+                      FROM saved_trails
                       JOIN trails ON saved_trails.trail_id = trails.id
-                      WHERE saved_trails.user_id = ?`, user_id);
+                      JOIN nodes on nodes.trail_id = trails.id WHERE saved_trails.user_id = ?
+                      GROUP BY trails.id, saved_trails.user_id`, user_id);
 }
 
 const create = (trail_id, user_id) => {
