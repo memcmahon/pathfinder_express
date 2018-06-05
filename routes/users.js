@@ -12,4 +12,8 @@ router.post('/login', function(req, res, next) {
   UsersController.logIn(req, res);
 });
 
+router.get('/logout', function(req, res, next) {
+  UsersController.logOut(req, res);
+});
+
 module.exports = router;

@@ -10,58 +10,59 @@
 
   <body>
     <nav class="m0 col-12 bg-white fixed z2">
-      <div class="ml1 left">
-        <h1 class="m0">PathFinder</h1>
+        <div class="row no-gutters">
+          <div class="col-sm-6 ml1 left">
+            <h1 class="logo">PathFinder</h1>
+          </div>
+          <div class="col-sm-6 mr1 text-right">
+            <% if (user) { %>
+              <h2>Welcome, <%= user.first_name %></h2>
+              <a href="/logout"><h2>Log Out</h2></a>
+            <% } else { %>
+              <h2 id="signup">Sign Up</h2>
+              <div class="signup">
+                <form class="" action="/signup" method="post">
+                  <input type="text" name="firstName" placeholder="First Name">
+                  <input type="text" name="lastName" placeholder="Last Name">
+                  <input type="email" name="email" placeholder="Email">
+                  <input type="password" name="password" placeholder="Password">
+                  <button type="submit" name="create">Submit</button>
+                </form>
+              </div>
+
+              <h2 id="login">Log In</h2>
+              <div class="login">
+                <form class="" action="/login" method="post">
+                  <input type="email" name="email" placeholder="Email">
+                  <input type="password" name="password" placeholder="Password">
+                  <button type="submit" name="create">Log In</button>
+                </form>
+              </div>
+            <% } %>
+          </div>
       </div>
     </nav>
-    <p id="signup">Sign Up</p>
-    <div class="signup">
-      <form class="" action="/signup" method="post">
-        <input type="text" name="firstName" placeholder="First Name">
-        <input type="text" name="lastName" placeholder="Last Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit" name="create">Submit</button>
-      </form>
-    </div>
-
-    <p id="login">Log In</p>
-    <div class="login">
-      <form class="" action="/login" method="post">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit" name="create">Log In</button>
-      </form>
-    </div>
 
     <div class="container">
-      <form class="" action="/" method="get">
-        <input type="integer" name="min_length" placeholder="min length(mi)">
-        <input type="integer" name="max_length" placeholder="max length(mi)">
-        <input type="integer" name="max_elevation_gain" placeholder="max elevation gain(ft)">
-        <button type="submit" name="search" class="btn">Search</button>
-      </form>
-      <p>When searching, all fields required!</p>
+      <div class="col-md-12" align="center">
+        <form class="search-form" action="/" method="get">
+          <input type="integer" name="min_length" placeholder="min length(mi)">
+          <input type="integer" name="max_length" placeholder="max length(mi)">
+          <input type="integer" name="max_elevation_gain" placeholder="max elevation gain(ft)">
+          <button type="submit" name="search" class="btn">Search</button>
+        </form>
+        <p>When searching, all fields required!</p>
+      </div>
     </div>
 
     <div class="container">
       <div class="row no-gutters">
         <% trails.forEach(trail => { %>
-          <div class="col-md-5 boxy text-center border bg-soft-white mx-auto">
-            <a href="/trails/<%= trail.id %>" class=""><h4><%= trail.name %></h4></a>
-            <div class="container">
-              <div class="row no-gutters">
-                <div class="col-md-6 text-left">
-                  <p>Min Elevation: <%= trail.min_elevation %></p>
-                  <p>Max Elevation: <%= trail.max_elevation %></p>
-                </div>
-                <div class="col-md-6 text-right">
-                  <p>Length: <%= trail.length %></p>
-                  <p>Total Elevation Gain: <%= trail.max_elevation - trail.min_elevation %></p>
-                </div>
-              </div>
-            </div>
-            <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%></p>
+          <div class="col-md-5 boxy text-center border rounded bg-soft-white mx-auto">
+            <a href="/trails/<%= trail.id %>" class="text-decoration-none"><h4><%= trail.name %></h4></a>
+            <h2><%= trail.length %> miles, <%= trail.max_elevation - trail.min_elevation %> feet gained</h2>
+            <p>Min Elevation: <%= trail.min_elevation %> - Max Elevation: <%= trail.max_elevation %> (ft)</p>
+            <p>Average Pitch: <%= (Math.atan((trail.max_elevation - trail.min_elevation)/(trail.length*5280)) * 180 / Math.PI).toFixed(2)%>%</p>
           </div>
         <% }) %>
       </div>

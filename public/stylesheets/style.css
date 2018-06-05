@@ -2,6 +2,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.logo {
+  margin-top: .4em;
+}
+
+.search-form {
+  margin-top: 1em;
+}
+
 a {
   color: black;
 }
@@ -36,122 +44,24 @@ h1 {
 
 h2 {
   font-family: 'Dosis', sans-serif;
-  font-weight: 800;
+  font-weight: 400;
   font-size: 18px;
   line-height: 46px;
 }
 
-  h3, button {
-      font-family: 'Dosis', sans-serif;
-      font-weight: 800;
-      font-size: 26px;
-      line-height: 46px;
-      }
+h3, button {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 46px;
+    }
 
-  p {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 14px;
-
-      }
-
-  .background-image {
-    background-size: cover;
-  }
-
-  .spacer {
-    height: 4em;
-  }
-
-  .icon-box {
-    height: 5em;
-  }
-
-  .med-image {
-    max-height: 90%;
-    max-width: 90%;
-  }
-
-  .bg-soft-white {
-    background-color: #ffffffD9;
-  }
-
-  .cover-image {
-    height: -webkit-fill-available;
-    background-image: image-url('dash-background.jpg');
-    background-size: cover;
-    background-color: black;
-  }
-
-  .bg-soft-blue {
-    background-color: #A6ABDD;
-  }
-
-  .gift-hover {
-    background-color: pink;
-  }
-
-  .gift-wrapper {
-    position: relative;
-  }
-
-  .centered {
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      background-color: #ffffffD9;
-      color: black;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-
-  .big-icon {
-    position: absolute;
-    top: 40%;
-    font-size: 60px;
-  }
-
-  .dropbtn {
-      font-size: 16px;
-      border: none;
-  }
-
-  .dropdown {
-      position: relative;
-      display: inline-block;
-  }
-
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #E7EBF1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-      z-index: 1;
-  }
-
-  .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #ffffffD9
-  }
-
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-      background-color: #E7EBF1;
-  }
-
-  .search-text {
-    width: 200px;
+p {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-  }
+
+    }
+
+.bg-soft-white {
+  background-color: #ffffffD9;
+}
