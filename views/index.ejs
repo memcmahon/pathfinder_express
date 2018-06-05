@@ -66,7 +66,7 @@
             <% if (user) { %>
               <form class="" action="/mytrails" method="post">
                 <input type="hidden" name="trail_id" value=<%= trail.id %>>
-                <button type="submit" name="save" class="btn border user-btn save-btn">Save Trail</button>
+                <button type="submit" name="save" class="btn border user-btn save-btn" data-trail=<%= trail.id %>>Save Trail</button>
               </form>
             <% } %>
           </div>
