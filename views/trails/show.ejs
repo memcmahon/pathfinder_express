@@ -8,9 +8,16 @@
 
   <body onload = "initMap(<%= JSON.stringify(nodes) %>)">
     <nav class="m0 col-12 bg-white fixed z2">
-      <div class="ml1 left">
-        <a href="/">
-        <h1 class="m0">PathFinder</h1></a>
+        <div class="row no-gutters">
+          <div class="col-sm-6 ml1 left">
+            <a href="/"><h1 class="logo">PathFinder</h1></a>
+          </div>
+          <div class="col-sm-6 mr1 text-right">
+            <% if (user) { %>
+              <h2>Welcome, <%= user.first_name %></h2>
+              <a href="/logout"><h2>Log Out</h2></a>
+            <% } %>
+          </div>
       </div>
     </nav>
 
