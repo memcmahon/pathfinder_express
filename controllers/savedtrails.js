@@ -15,7 +15,12 @@ const create = (req, res) => {
   SavedTrail.create(req.body.trail_id, req.session.user.id);
 }
 
+const destroy = (req, res) => {
+  SavedTrail.destroy(req.body.trail_id, req.session.user.id);
+}
+
 module.exports = {
   index,
-  create
+  create,
+  destroy
 }
