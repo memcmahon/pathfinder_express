@@ -22,8 +22,11 @@ A step by step series of examples that tell you have to get a development env ru
 Clone and CD into the repo and bundle:
 
 `$ git clone https://github.com/memcmahon/pathfinder_express.git`
+
 `$ cd pathfinder_express`
+
 `$ npm install`
+
 
 The next step may take a few minutes, create the database, migrate and seed:
 
