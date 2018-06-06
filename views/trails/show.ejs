@@ -42,6 +42,12 @@
           </div>
         </div>
       </div>
+
+      <div class="container text-center">
+        <% if (user) { %>
+          <button type="submit" name="save" class="btn border user-btn save-btn" data-trail=<%= trail.id %>>Save Trail</button>
+        <% } %>
+      </div>
     </div>
 
 
