@@ -8,7 +8,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8IJyqe7PKy6yLBGn70oU6aPTpHKuk71c&libraries=geometry"></script>
   </head>
 
-  <body>
+  <body onload="initialize(<%= JSON.stringify(trails) %>)">
     <nav class="m0 col-12 bg-white fixed z2">
         <div class="row no-gutters">
           <div class="col-sm-6 ml1 left">
@@ -23,9 +23,16 @@
       </div>
     </nav>
 
+
     <div class="container">
       <div class="col-md-12" align="center">
         <h3>My Saved Trails</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="map_wrapper">
+        <div id="map_canvas" class="mapping"></div>
       </div>
     </div>
 
@@ -47,5 +54,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='/javascripts/application.js'></script>
+    <script src='/javascripts/mapped.js'></script>
   </body>
 </html>
